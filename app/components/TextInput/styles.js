@@ -33,7 +33,7 @@ export default EStyleSheet.create({
     paddingHorizontal: 16,
     color: '$primaryBlue'
   },
-  border: {
+  separator: {
     height: INPUT_HEIGHT,
     width: StyleSheet.hairlineWidth,
     backgroundColor: '$border'
