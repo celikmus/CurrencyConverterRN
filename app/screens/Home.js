@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StatusBar } from 'react-native';
+import { StatusBar, KeyboardAvoidingView } from 'react-native';
 import { Container } from '../components/Container';
 import { Logo } from '../components/Logo';
 import { InputWithButton } from '../components/TextInput';
@@ -36,31 +36,33 @@ class Home extends Component {
       <Container>
         <StatusBar translucent={false} barStyle="light-content" />
         <Header onPress={this.handlePressOptions} />
-        <Logo />
-        <InputWithButton
-          onPress={this.handlePressBaseCurrency}
-          buttonText={TEMP_BASE_CURRENCY}
-          defaultValue={TEMP_BASE_PRICE}
-          keyboardType="numeric"
-          onChangeText={this.handleTextChange}
-        />
-        <InputWithButton
-          onPress={this.handlePressQuoteCurrency}
-          buttonText={TEMP_QUOTE_CURRENCY}
-          editable={false}
-          defaultValue={TEMP_QUOTE_PRICE}
-          keyboardType="numeric"
-        />
-        <LastConverted
-          base={TEMP_BASE_CURRENCY}
-          quote={TEMP_QUOTE_CURRENCY}
-          date={TEMP_CONVERSION_DATE}
-          conversionRate={TEMP_CONVERSION_RATE}
-        />
-        <ClearButton
-          onPress={this.handlePressClearButton}
-          text={clearButtonText}
-        />
+        <KeyboardAvoidingView behavior="position">
+          <Logo />
+          <InputWithButton
+            onPress={this.handlePressBaseCurrency}
+            buttonText={TEMP_BASE_CURRENCY}
+            defaultValue={TEMP_BASE_PRICE}
+            keyboardType="numeric"
+            onChangeText={this.handleTextChange}
+          />
+          <InputWithButton
+            onPress={this.handlePressQuoteCurrency}
+            buttonText={TEMP_QUOTE_CURRENCY}
+            editable={false}
+            defaultValue={TEMP_QUOTE_PRICE}
+            keyboardType="numeric"
+          />
+          <LastConverted
+            base={TEMP_BASE_CURRENCY}
+            quote={TEMP_QUOTE_CURRENCY}
+            date={TEMP_CONVERSION_DATE}
+            conversionRate={TEMP_CONVERSION_RATE}
+          />
+          <ClearButton
+            onPress={this.handlePressClearButton}
+            text={clearButtonText}
+          />
+        </KeyboardAvoidingView>
       </Container>
     );
   }
