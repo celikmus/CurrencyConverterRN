@@ -33,7 +33,7 @@ class Home extends Component {
     console.log('press clear button');
   };
   handlePressOptions = () => {
-    console.log('press options button');
+    this.props.navigation.navigate('Options');
   };
   render() {
     return (
