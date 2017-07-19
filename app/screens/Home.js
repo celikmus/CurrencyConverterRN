@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { StatusBar, KeyboardAvoidingView } from 'react-native';
+import { connect } from 'react-redux';
 import { Container } from '../components/Container';
 import { Logo } from '../components/Logo';
 import { InputWithButton } from '../components/TextInput';
@@ -28,10 +29,10 @@ class Home extends Component {
     this.props.navigation.navigate('CurrencyList', { title: 'Quote Currency' });
   };
   handleTextChange = amount => {
-    // this.props.dispatch(changeCurrencyAmount(amount));
+    this.props.dispatch(changeCurrencyAmount(amount));
   };
   handlePressSwapCurrency = () => {
-    // this.props.dispatch(swapCurrency());
+    this.props.dispatch(swapCurrency());
   };
   handlePressOptions = () => {
     this.props.navigation.navigate('Options');
@@ -73,4 +74,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default connect()(Home);
