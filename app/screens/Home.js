@@ -20,7 +20,8 @@ class Home extends Component {
     amount: PropTypes.number,
     conversionRate: PropTypes.number,
     isFetching: PropTypes.bool,
-    lastConvertedDate: PropTypes.object
+    lastConvertedDate: PropTypes.object,
+    primaryColor: PropTypes.string
   };
   handlePressBaseCurrency = () => {
     this.props.navigation.navigate('CurrencyList', {
@@ -49,17 +50,18 @@ class Home extends Component {
       quotePrice = '...';
     }
     return (
-      <Container>
+      <Container backgroundColor={this.props.primaryColor}>
         <StatusBar translucent={false} barStyle="light-content" />
         <Header onPress={this.handlePressOptions} />
         <KeyboardAvoidingView behavior="padding">
-          <Logo />
+          <Logo tintColor={this.props.primaryColor} />
           <InputWithButton
             onPress={this.handlePressBaseCurrency}
             buttonText={this.props.baseCurrency}
             defaultValue={this.props.amount.toString()}
             keyboardType="numeric"
             onChangeText={this.handleTextChange}
+            textColor={this.props.primaryColor}
           />
           <InputWithButton
             onPress={this.handlePressQuoteCurrency}
@@ -67,6 +69,8 @@ class Home extends Component {
             editable={false}
             defaultValue={quotePrice}
             keyboardType="numeric"
+            textColor={this.props.primaryColor}
+            textColor={this.props.primaryColor}
           />
           <LastConverted
             base={this.props.baseCurrency}
@@ -98,7 +102,8 @@ const mapStateToProps = state => {
     isFetching,
     lastConvertedDate: conversionSelector.date
       ? new Date(conversionSelector.date)
-      : new Date()
+      : new Date(),
+    primaryColor: state.theme.primaryColor
   };
 };
 
