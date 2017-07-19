@@ -7,12 +7,13 @@ import { InputWithButton } from '../components/TextInput';
 import { ClearButton } from '../components/Buttons';
 import { LastConverted } from '../components/Text';
 import { Header } from '../components/Header';
+import { swapCurrency, changeCurrencyAmount } from '../actions/currencies';
 
 const TEMP_BASE_CURRENCY = 'USD';
 const TEMP_QUOTE_CURRENCY = 'GBP';
 const TEMP_BASE_PRICE = '100';
 const TEMP_QUOTE_PRICE = '79.74';
-const clearButtonText = 'Reverse currencies';
+const swapButtonText = 'Reverse currencies';
 const TEMP_CONVERSION_RATE = 0.7974;
 const TEMP_CONVERSION_DATE = new Date();
 
@@ -26,11 +27,11 @@ class Home extends Component {
   handlePressQuoteCurrency = () => {
     this.props.navigation.navigate('CurrencyList', { title: 'Quote Currency' });
   };
-  handleTextChange = text => {
-    console.log('change text', text);
+  handleTextChange = amount => {
+    // this.props.dispatch(changeCurrencyAmount(amount));
   };
-  handlePressClearButton = () => {
-    console.log('press clear button');
+  handlePressSwapCurrency = () => {
+    // this.props.dispatch(swapCurrency());
   };
   handlePressOptions = () => {
     this.props.navigation.navigate('Options');
@@ -63,8 +64,8 @@ class Home extends Component {
             conversionRate={TEMP_CONVERSION_RATE}
           />
           <ClearButton
-            onPress={this.handlePressClearButton}
-            text={clearButtonText}
+            onPress={this.handlePressSwapCurrency}
+            text={swapButtonText}
           />
         </KeyboardAvoidingView>
       </Container>
