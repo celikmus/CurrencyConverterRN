@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "jest-expo": "~18.0.0",
+    "jest-expo": "~19.0.0",
     "react-native-scripts": "0.0.50",
     "react-test-renderer": "16.0.0-alpha.12"
   },
@@ -21,12 +21,13 @@
   "dependencies": {
     "@expo/vector-icons": "^5.0.0",
     "color": "^2.0.0",
-    "expo": "^18.0.3",
+    "exp": "^43.0.0",
+    "expo": "^19.0.0",
     "hoist-non-react-statics": "^2.2.0",
     "moment": "^2.18.1",
     "prop-types": "^15.5.10",
     "react": "16.0.0-alpha.12",
-    "react-native": "^0.45.1",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-19.0.0.tar.gz",
     "react-native-dropdownalert": "^2.10.0",
     "react-native-extended-stylesheet": "^0.6.0",
     "react-navigation": "^1.0.0-beta.11",

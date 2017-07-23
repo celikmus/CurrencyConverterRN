@@ -10,7 +10,8 @@ const HomeStack = StackNavigator(
     Home: {
       screen: Home,
       navigationOptions: {
-        header: () => null
+        header: () => null,
+        headerTitle: 'Home'
       }
     },
     Options: {
