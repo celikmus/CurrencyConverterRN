@@ -39,8 +39,10 @@ function* fetchLatestConversionRates(action) {
 //   yield;
 // }
 
-export default function* rootSaga() {
+const root = function* rootSaga() {
   yield takeEvery(GET_INITIAL_CONVERSION, fetchLatestConversionRates);
   yield takeEvery(SWAP_CURRENCY, fetchLatestConversionRates);
   yield takeEvery(CHANGE_BASE_CURRENCY, fetchLatestConversionRates);
-}
+};
+
+export default root;
